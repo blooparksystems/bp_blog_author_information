@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "bp_blog_author_information",
+    'name': "Blog extended Author Information",
 
     'summary': """
     enables additional blog author information at the end of the blog""",
@@ -8,11 +8,11 @@
     'description': """
     enables additional blog author information at the end of the blog""",
 
-    'author': "BLOOPARK SYSTEMS GMBH. & CO. KG",
+    'author': "bloopark systems GmbH & Co. KG",
     'website': "http://www.bloopark.de",
 
     'category': 'blog',
-    'version': '0.1',
+    'version': '1.0',
 
     # any module necessary for this one to work correctly
     'depends': [
