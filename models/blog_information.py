@@ -65,7 +65,4 @@ class BlogPost(Model):
         '''
 
         res_partner = self.env['res.partner'].sudo().browse(partner.id)
-        res_partner_image = res_partner[0].image
-
-
-        return res_partner_image
+        return res_partner
