@@ -22,8 +22,7 @@
                                                 <b>
                                                     <i>
                                                         <div class="hex-mask">
-                                                            <img t-att-src="website.image_url(blog_post.get_author_image(blog_post.author_id), 'image')"
-                                                                 width="300px" height="300px"/>
+                                                            <img t-att-src="website.image_url(blog_post.get_author_image(blog_post.author_id), 'image')" width="300px" height="300px"/>
                                                         </div>
                                                     </i>
                                                 </b>
