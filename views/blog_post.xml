@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="bloopark_blog_post" inherit_id="website_blog.blog_post_complete" name="Bloopark Blog">
+            <xpath expr="//section[1]" position="before">
+                <t t-if="blog_post.get_employee_notes()">
+                <section class="col-md-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">About -
+                                        <span t-field="blog_post.author_id"
+                                              style="display: inline-block;"
+                                              t-field-options='{
+											"fields": ["name"]
+										}'/>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-4">
+                                        <div>
+                                            <b>
+                                                <i>
+                                                    <div class="hex-mask">
+                                                        <img t-att-src="website.image_url(blog_post.get_author_image(blog_post.author_id), 'image')"
+                                                             width="300px" height="300px"/>
+                                                    </div>
+                                                </i>
+                                            </b>
+                                        </div>
+                                        <div>
+                                            <center>
+                                                <!-- getting the social links for the blog post author, 'social_link' as key,
+                                                which contains the social field name (e.g linkedin, dribbble...)
+                                                and 'blog_post.get_social_links(blog_post.author_id)[social_link]' as linked social
+                                                media address -->
+                                                <h2><t t-foreach="blog_post.get_social_links(blog_post.author_id)" t-as="social_link">
+                                                        <t t-if="social_link">
+                                                            <a class="social-icon" style="text-decoration: none;" t-att-href="blog_post.get_social_links(blog_post.author_id)[social_link]">
+                                                                <i t-attf-class="fa fa-{{social_link}}"/>
+                                                            </a>
+                                                        </t>
+                                                    </t>
+                                                </h2>
+                                            </center>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div>
+                                            <span t-field="blog_post.author_id"
+                                                  style="display: inline-block;color: #666666;"
+                                                  t-field-options='{
+											"widget": "contact",
+											"fields": ["name"]
+										}'/>
+                                        </div>
+                                            <p t-esc="blog_post.get_employee_notes()"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</openerp>
