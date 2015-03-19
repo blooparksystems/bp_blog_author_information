@@ -17,7 +17,7 @@
     # any module necessary for this one to work correctly
     'depends': [
         'website_blog',
-        'bp_8_0_social_media_for_res_partner'
+        'bp_social_media_for_res_partner'
     ],
 
     # always loaded
