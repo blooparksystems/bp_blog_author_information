@@ -1,20 +1,41 @@
 # -*- coding: utf-8 -*-
+##############################################################################
+#
+# Odoo, an open source suite of business apps
+# This module copyright (C) 2015 bloopark systems (<http://bloopark.de>).
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
 from openerp.models import Model
 
 
 class BlogPost(Model):
-    '''
+
+    """
     inheriting the BlogPost to wirte additional functions for the blog post author information
-    '''
+    """
+
     _inherit = "blog.post"
 
     def get_employee_notes(self):
-        '''
+        """
         we need to get the employee object to get the note information located in this object.
         the object author_id has no field called notes
 
         :return notes:
-        '''
+        """
         notes = ''
         employees = self.env['hr.employee'].search([('address_id', '=', self.author_id.id)])
         if employees:
@@ -22,7 +43,7 @@ class BlogPost(Model):
         return notes
 
     def get_social_links(self, partner):
-        '''
+        """
         QWebException: "('AccessError', u'The requested operation cannot be completed due to security restrictions.
         Please contact your system administrator.\n\n(Document type: res.partner, Operation: read)')"
 
@@ -31,7 +52,7 @@ class BlogPost(Model):
 
         :param partner:
         :return social_links_dict:
-        '''
+        """
 
         res_partner = self.env['res.partner'].sudo().browse(partner.id)
         social_links_dict = {}
@@ -53,7 +74,7 @@ class BlogPost(Model):
         return social_links_dict
 
     def get_author_image(self, partner):
-        '''
+        """
         QWebException: "('AccessError', u'The requested operation cannot be completed due to security restrictions.
         Please contact your system administrator.\n\n(Document type: res.partner, Operation: read)')"
 
@@ -62,7 +83,7 @@ class BlogPost(Model):
 
         :param partner:
         :return res_partner_image:
-        '''
+        """
 
         res_partner = self.env['res.partner'].sudo().browse(partner.id)
         res_partner_id = res_partner[0]
