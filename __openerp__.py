@@ -20,26 +20,21 @@
 ##############################################################################
 {
     'name': "Blog extended Author Information",
-
     'summary': """
     enables additional blog author information at the end of the blog""",
-
     'description': """
     enables additional blog author information at the end of the blog""",
-
     'author': "bloopark systems GmbH & Co. KG",
     'website': "http://www.bloopark.de",
-
+    'license': 'AGPL-3',
     'category': 'blog',
     'version': '1.0',
 
-    # any module necessary for this one to work correctly
     'depends': [
         'website_blog',
         'bp_social_media_for_res_partner'
     ],
 
-    # always loaded
     'data': [
         'views/blog_post.xml'
     ],
